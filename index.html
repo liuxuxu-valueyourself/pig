@@ -89,12 +89,10 @@
     }
 
     .date {
-      width: 300px;
+      width: 100vw;
       text-align: center;
-      position: fixed;
-      top: 10vh;
-      left: calc(50% - 150px);
-      font: 12px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;
+      color: #008c8c;
+      font: 36px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;
     }
   </style>
 </head>
@@ -108,7 +106,7 @@
     <div class="img">成</div>
     <div class="img">诗</div>
     <div class="img">晚</div>
-    <div class="img">安！</div>
+    <div class="img">安</div>
   </div>
   <div class="date"></div>
   <script type="text/javascript">
@@ -122,16 +120,13 @@
       var minute = parseInt(differTime / 1000 / 60 % 60);
       let hour = parseInt(differTime / 1000 / 60 / 60 % 24); //小时
       let day = parseInt(differTime / 1000 / 60 / 60 / 24); //天
-      let str = `跨年倒计时: ${day}天 ${hour}小时 ${minute}分钟 ${second}秒`;
+      let str = `跨年倒计时: ${day}天 ${hour}小时 ${minute}分钟 ${second}秒...`;
       if (kuaNian - nowTime < 1000) {
         oDate.innerHTML = '2021!'
       } else {
         oDate.innerHTML = str;
       }
     }, 1000)
-    // document.body.onmousemove = function (e){
-    //     this.style.perspectiveOrigin = "" + e.pageX + "px " + e.pageY + "px";
-    // }
   </script>
 </body>
 
