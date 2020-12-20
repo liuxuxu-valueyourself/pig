@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>来自旭哥的关爱</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>请保持❤脏跳动 有人在等你共鸣</title>
   <style>
     * {
       margin: 0;
@@ -12,7 +13,7 @@
 
     :root,
     body {
-      background-image:radial-gradient(circle at center center,rgba(244, 185, 23, 0.2),rgba(0,0,0,0));
+      background-image: radial-gradient(circle at center center, rgba(244, 185, 23, 0.2), rgba(0, 0, 0, 0));
       height: 100%;
     }
 
@@ -39,23 +40,21 @@
       height: 200px;
       transform: translate(-50%, -50%);
       transform-style: preserve-3d;
-      animation: round 10s linear infinite;
-
+      animation: round 16s linear infinite;
     }
 
     .img {
       -webkit-box-reflect: below 10px -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.5) 100%);
-
       position: absolute;
       width: 200px;
       height: 200px;
-      background-color: #0b702d;
-      color: rgb(99, 218, 125);
+      background-color: #3e8110;
+      color: rgb(99, 187, 106);
       text-align: center;
-      line-height: 200px;
       font-weight: 700;
       font-size: 42px;
-      /*backface-visibility:hidden;*/
+      font: 42px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;
+      line-height: 200px;
     }
 
     .img:nth-of-type(1) {
@@ -68,56 +67,78 @@
 
     .img:nth-of-type(3) {
       transform: rotatey(135deg) translatez(300px);
-
     }
 
     .img:nth-of-type(4) {
       transform: rotatey(180deg) translatez(300px);
-
     }
 
     .img:nth-of-type(5) {
       transform: rotatey(225deg) translatez(300px);
-
     }
 
     .img:nth-of-type(6) {
       transform: rotatey(270deg) translatez(300px);
-
     }
 
     .img:nth-of-type(7) {
       transform: rotatey(315deg) translatez(300px);
-
     }
 
     .img:nth-of-type(8) {
       transform: rotatey(360deg) translatez(300px);
+    }
 
+    .date {
+      width: 300px;
+      text-align: center;
+      position: fixed;
+      top: 10vh;
+      left: calc(50% - 150px);
+      font: 12px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;
     }
   </style>
 </head>
 
 <body>
-
-
   <div class="wrapper">
+    <div class="img">把</div>
+    <div class="img">日</div>
+    <div class="img">子</div>
+    <div class="img">过</div>
+    <div class="img">成</div>
+    <div class="img">诗</div>
     <div class="img">晚</div>
-    <div class="img">安</div>
-    <div class="img">小</div>
-    <div class="img">宝</div>
-    <div class="img">贝</div>
-    <div class="img">❤</div>
-    <div class="img">❤</div>
-    <div class="img">❤</div>
+    <div class="img">安！</div>
   </div>
-
+  <div class="date">跨年倒计时：00:00:00</div>
   <script type="text/javascript">
+    const oDate = document.querySelector('.date');
+    let kuaNian = new Date(2021, 0, 1).getTime();
+    setInterval(() => {
+      let nowTime = new Date().getTime(); //现在的毫秒数
+
+      let differTime = kuaNian - nowTime;
+      let second = parseInt(differTime / 1000 % 60); //秒
+      var minute = parseInt(differTime / 1000 / 60 % 60);
+      let hour = parseInt(differTime / 1000 / 60 / 60 % 24); //小时
+      let day = parseInt(differTime / 1000 / 60 / 60 / 24); //天
+      let str = `跨年倒计时: ${day}天 ${hour}小时 ${minute}分钟 ${second}秒`;
+      if (kuaNian - nowTime < 1000) {
+        oDate.innerHTML = '2021!'
+      } else {
+        oDate.innerHTML = str;
+      }
+    }, 1000)
+
+
+
+
+
     // document.body.onmousemove = function (e){
     //     this.style.perspectiveOrigin = "" + e.pageX + "px " + e.pageY + "px";
     // }
   </script>
-
 </body>
 
 </html>
